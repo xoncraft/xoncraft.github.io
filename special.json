@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Александр",
+    "city": "СНГ",
+    "photo": "img/profile.jpg",
+    "telegram": "https://t.me/example",
+    "description": "Отличная работа! Всё настроено быстро и качественно. Очень доволен результатом."
+  },
+  {
+    "name": "Мухаммад",
+    "city": "Узбекистан",
+    "photo": "img/profile.jpg",
+    "telegram": "https://t.me/example2",
+    "description": "Спасибо за помощь с GameClass. Объяснили всё понятно, теперь пользуюсь без проблем."
+  },
+  {
+    "name": "Айгуль",
+    "city": "Кыргызстан",
+    "photo": "img/profile.jpg",
+    "telegram": "https://t.me/example3",
+    "description": "Сервис на высшем уровне! Настроили всё под ключ, всегда на связи и отвечают быстро."
+  }
+]
