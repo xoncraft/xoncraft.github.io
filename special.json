@@ -1,23 +1,22 @@
 [
   {
-    "name": "Александр",
-    "city": "СНГ",
-    "photo": "img/profile.jpg",
-    "telegram": "https://t.me/example",
-    "description": "Отличная работа! Всё настроено быстро и качественно. Очень доволен результатом."
+    "name": "Имя Фамилия",
+    "role": "Клиент",
+    "description": "Здесь будет текст отзыва. Например: очень доволен сотрудничеством, работа выполнена качественно и в срок.",
+    "username": "username",
+    "usernameLink": "https://example.com/username",
+    "phone": "+9989xxxxxxxx",
+    "phoneLink": "tel:+998912345678",
+    "img": "https://assets.codepen.io/3/internal/avatars/users/default.png"
   },
   {
-    "name": "Мухаммад",
-    "city": "Узбекистан",
-    "photo": "img/profile.jpg",
-    "telegram": "https://t.me/example2",
-    "description": "Спасибо за помощь с GameClass. Объяснили всё понятно, теперь пользуюсь без проблем."
-  },
-  {
-    "name": "Айгуль",
-    "city": "Кыргызстан",
-    "photo": "img/profile.jpg",
-    "telegram": "https://t.me/example3",
-    "description": "Сервис на высшем уровне! Настроили всё под ключ, всегда на связи и отвечают быстро."
+    "name": "Имя Фамилия",
+    "role": "Заказчик",
+    "description": "Здесь будет отзыв. Например: профессиональный подход, отличное внимание к деталям, рекомендую.",
+    "username": "username2",
+    "usernameLink": "https://example.com/username2",
+    "phone": "+9989xxxxxxxx",
+    "phoneLink": "tel:+998912345678",
+    "img": "https://assets.codepen.io/2/internal/avatars/users/default.png"
   }
 ]
