@@ -1,22 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Меню ===
+  // ==== Telegram форма ====
+  const token = "8109711650:AAFIAX-DYNon_VDen00akAoCWDkPw-xRsMk";
+  const chatId = "-4714866066";
+
+  const contactForm = document.getElementById("contactForm");
+  if(contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = this.name.value;
+      const contact = this.contact.value;
+      const message = this.message.value;
+
+      const text = `Новое сообщение:\nИмя: ${name}\nTelegram/Телефон: ${contact}\nСообщение: ${message}`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text })
+      })
+      .then(response => {
+        if(response.ok) {
+          alert("Сообщение отправлено!");
+          this.reset();
+        } else {
+          alert("Ошибка при отправке.");
+        }
+      })
+      .catch(err => alert("Ошибка: " + err));
+    });
+  }
+
+  // ==== Меню ====
   const menuBtnMobile = document.getElementById("menuBtnMobile");
   const menuBtnPc = document.getElementById("menuBtnPc");
   const sideMenu = document.getElementById("sideMenu");
   const sideBackdrop = document.getElementById("sideBackdrop");
 
-  // === Оверлей магазина ===
+  // ==== Оверлей магазина ====
   const shopOverlay = document.getElementById("shopOverlay");
   const shopBtnMobile = document.getElementById("shopBtn");
   const shopBtnDesktop = document.getElementById("shopBtnPc");
-
   const becomeSpecialistBtn = document.getElementById("becomeSpecialistBtn");
 
   // ==== Иконки ====
   function getMenuIcon(btn) { return btn?.querySelector("span"); }
   function getShopIcon(btn) { return btn?.querySelector("span"); }
 
-  // ==== Утилиты ====
+  // ==== Функции меню и оверлея ====
   function closeMenus() {
     sideMenu?.classList.remove("open");
     sideBackdrop?.classList.remove("active");
@@ -99,31 +130,28 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", updateActiveLinks);
 
   // ==== Skills GSAP ====
-const skillBars = document.querySelectorAll(".progress");
-
-if (skillBars.length > 0 && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-  skillBars.forEach(bar => {
-    const value = bar.dataset.value || 0;
-    gsap.to(bar, {
-      width: value + "%",
-      duration: 1.5,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: bar,
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
+  const skillBars = document.querySelectorAll(".progress");
+  if (skillBars.length > 0 && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    skillBars.forEach(bar => {
+      const value = bar.dataset.value || 0;
+      gsap.to(bar, {
+        width: value + "%",
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: bar,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
     });
-  });
-}
-  
-  // ==== GSAP animations ====
-  if (typeof gsap !== "undefined") {
-    if (typeof ScrollTrigger !== "undefined" && gsap.registerPlugin) {
-      gsap.registerPlugin(ScrollTrigger);
-    }
+  }
 
-    // Анимация текста Hero
+  // ==== GSAP анимации ====
+  if (typeof gsap !== "undefined") {
+    if (typeof ScrollTrigger !== "undefined" && gsap.registerPlugin) gsap.registerPlugin(ScrollTrigger);
+
+    // Hero текст
     const heroLetters = document.querySelectorAll(".hero_text_title li span");
     const heroTaglines = document.querySelectorAll(".hero_text_tagline span");
 
@@ -151,7 +179,7 @@ if (skillBars.length > 0 && typeof gsap !== "undefined" && typeof ScrollTrigger 
       }
     }
 
-    // Универсальная анимация появления секций
+    // Универсальная анимация секций
     document.querySelectorAll("section, .download-item, .shop-product-card, .contact-link, .become-specialist-btn").forEach(el => {
       gsap.from(el, {
         scrollTrigger: {
@@ -171,7 +199,5 @@ if (skillBars.length > 0 && typeof gsap !== "undefined" && typeof ScrollTrigger 
   }
 
   // ==== Escape закрывает меню/оверлей ====
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenus();
-  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenus(); });
 });
