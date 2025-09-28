@@ -1,7 +1,0 @@
-﻿Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION]
-"rshell.exe"=dword:00002af9
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EM
-"rshell.exe"=hex(b):f9,2a,00,00,00,00,00,00
