@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Портфолио</title>
+  <title>XONCRAFT - PORTFOLIO</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css?v=6.5.0" />
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css?v=2.3.4" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
 <div class="side-backdrop" id="sideBackdrop"></div>
-<aside class="side-menu" id="sideMenu" data-aos="fade-right" data-aos-duration="800">
+<aside class="side-menu" id="sideMenu" data-gsap="fade-right">
   <div class="side-content">
-  <h2>Свяжитесь со мной</h2>
-  <form id="contactForm">
-    <label>
-      <span>Имя</span>
-      <input type="text" name="name" placeholder="Ваше имя" required />
-    </label>
-    <label>
-      <span>Telegram / Телефон</span>
-      <input type="text" name="contact" placeholder="@username или +998..." required />
-    </label>
-    <label>
-      <span>Сообщение</span>
-      <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-    </label>
-    <button type="submit">
-      <span class="material-icons-round">send</span>
-      Отправить
-    </button>
-  </form>
-</div>
+    <h2>Свяжитесь со мной</h2>
+    <form id="contactForm">
+      <label>
+        <span>Имя</span>
+        <input type="text" name="name" placeholder="Ваше имя" required />
+      </label>
+      <label>
+        <span>Telegram / Телефон</span>
+        <input type="text" name="contact" placeholder="@username или +998..." required />
+      </label>
+      <label>
+        <span>Сообщение</span>
+        <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+      </label>
+      <button type="submit">
+        <span class="material-icons-round">send</span>
+        Отправить
+      </button>
+    </form>
+  </div>
+</aside>
 
 <script>
 const token = "8109711650:AAFIAX-DYNon_VDen00akAoCWDkPw-xRsMk";
@@ -52,10 +54,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: text
-    })
+    body: JSON.stringify({ chat_id: chatId, text })
   })
   .then(response => {
     if(response.ok) {
@@ -68,219 +67,199 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   .catch(err => alert("Ошибка: " + err));
 });
 </script>
-</aside>
 
-<div class="shop-overlay" id="shopOverlay" data-aos="fade-left" data-aos-duration="800">
+<div class="shop-overlay" id="shopOverlay" data-gsap="fade-left">
   <div class="shop-menu-wrapper">
-  <h2>Игра Х и 0</h2>
-  <div class="tic-tac-toe">
-    <div class="board" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
+    <h2>Мои социальные сети</h2>
+    <div class="shop-products-grid">
+      <a href="https://t.me/username" target="_blank" class="shop-product-card" data-gsap="fade-up">
+        <i class="fab fa-telegram-plane"></i>
+        <h3>Telegram</h3>
+        <p>Новости и чат</p>
+      </a>
+      <a href="https://instagram.com/username" target="_blank" class="shop-product-card" data-gsap="fade-up">
+        <i class="fab fa-instagram"></i>
+        <h3>Instagram</h3>
+        <p>Фото и сторис</p>
+      </a>
+      <a href="https://youtube.com/@username" target="_blank" class="shop-product-card" data-gsap="fade-up">
+        <i class="fab fa-youtube"></i>
+        <h3>YouTube</h3>
+        <p>Видео проекты</p>
+      </a>
+      <a href="https://github.com/username" target="_blank" class="shop-product-card" data-gsap="fade-up">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <p>Код и проекты</p>
+      </a>
     </div>
-    <div class="game-info">
-      <p id="status">Твой ход: X</p>
-      <button id="restartBtn" class="btn-accent">Начать заново</button>
-    </div>
-  </div>
-</div>
   </div>
 </div>
 
-<header class="main-header" data-aos="fade-down" data-aos-duration="800">
-  <button class="menu-btn" id="shopBtn">
-    <span class="material-icons-round">gamepad</span>
+<header class="main-header" data-gsap="fade-down">
+  <button class="menu-btn" id="menuBtnMobile">
+    <span class="material-icons-round">mail</span>
   </button>
   <img src="img/logo.png" alt="Логотип" class="logo" />
-  <button class="contact-btn" id="menuBtn">
-    <span class="material-icons-round">mail</span>
+  <button class="contact-btn" id="shopBtn">
+    <span class="material-icons-round">share</span>
   </button>
 </header>
 
-<nav class="desktop-nav" data-aos="fade-down" data-aos-duration="800">
+<nav class="desktop-nav" data-gsap="fade-down">
   <div class="left">
     <img src="img/logo.png" alt="Логотип" class="logo" />
   </div>
   <div class="center">
-<a href="#home"><span class="material-icons-round">home</span>Главная</a>
-<a href="#about"><span class="material-icons-round">person</span>Обо мне</a>
-<a href="#skills"><span class="material-icons-round">school</span>Навыки</a>
-<a href="#portfolio"><span class="material-icons-round">work</span>Мои работы</a>
-<a href="#special"><span class="material-icons-round">reviews</span>Отзывы</a>
-<a href="#contact"><span class="material-icons-round">mail</span>Контакты</a>
+    <a href="#home"><span class="material-icons-round">home</span>Главная</a>
+    <a href="#skills"><span class="material-icons-round">school</span>Навыки</a>
+    <a href="#works"><span class="material-icons-round">work</span>Работы</a>
+    <a href="#services"><span class="material-icons-round">handyman</span>Услуги</a>
+    <a href="#feedback"><span class="material-icons-round">reviews</span>Отзывы</a>
+    <a href="#contact"><span class="material-icons-round">chat</span>Контакты</a>
   </div>
   <div class="right">
-    <button class="contact-btn" id="shopBtnPc">
+    <button class="menu-btn" id="menuBtnPc">
       <span class="material-icons-round">mail</span>
+    </button>
+    <button class="contact-btn" id="shopBtnPc">
+      <span class="material-icons-round">share</span>
     </button>
   </div>
 </nav>
 
-<section class="hero" id="home">
-  <div class="hero-overlay"></div>
-  <div class="hero-wrapper" data-aos="fade-up" data-aos-duration="1200">
-    <div class="hero-content">
-      <h1>Привет! Я <span>Саидаброр</span></h1>
-      <p class="hero-subtitle">
-        <span class="typing-text"></span>
-      </p>
-      <p class="hero-description">Я создаю современные сайты и помогаю развивать онлайн-проекты.</p>
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn-accent">Скачать резюме</a>
-        <a href="#contact" class="btn-outline">Связаться</a>
-      </div>
-    </div>
-    <div class="hero-gif">
-      <img src="img/anim.gif" alt="Анимация">
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about" data-aos="fade-up" data-aos-duration="1000">
-  <h2 class="section-title">Обо мне</h2>
-  <div class="container about-wrapper">
-    <div class="about-img" data-aos="fade-right">
-      <img src="img/profile.jpg" alt="Моё фото">
-    </div>
-    
-    <!-- Контент -->
-    <div class="about-content" data-aos="fade-left">
-      <p>
-        Привет! Я — веб-разработчик и дизайнер, создаю стильные и современные сайты, 
-        которые помогают бизнесу выделяться и привлекать клиентов. 
-        Люблю минимализм, чистый код и продуманный интерфейс.
-      </p>
-
-      <ul class="about-info">
-        <li><strong>Имя:</strong> Саидаброр Толибов</li>
-        <li><strong>Email:</strong> abrorkhon1040@mail.com</li>
-        <li><strong>Город:</strong> Андижан</li>
-        <li><strong>Фриланс:</strong> Доступен <span class="material-icons-round">check_circle</span></li>
-      </ul>
-
-      <a href="#contact" class="btn-accent">Связаться</a>
-    </div>
-  </div>
+<section class="hero_text_container" id="home">
+  <ul class="hero_text_title">
+    <li><span>c</span></li>
+    <li><span>r</span></li>
+    <li><span>e</span></li>
+    <li><span>a</span></li>
+    <li><span>t</span></li>
+    <li><span>e</span></li>
+  </ul>
+  <h3 class="hero_text_tagline">
+    <span>Привет! Мы создаём сайты и дизайн</span>
+    <span>Делаем проекты для людей по всему миру</span>
+  </h3>
 </section>
 
 <div class="section-divider"></div>
 
-<section class="skills" id="skills" data-aos="fade-up" data-aos-duration="1000">
-  <div class="container">
-    <h2 class="section-title">Мои навыки</h2>
-    <div class="skills-grid">
-      <div class="skill-card" data-aos="fade-right" data-aos-duration="800">
-        <span class="material-icons-round">code</span>
-        <h3>Веб-разработка</h3>
-        <p>HTML, CSS, JavaScript — создание адаптивных и современных сайтов.</p>
-      </div>
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="800">
-        <span class="material-icons-round">brush</span>
-        <h3>Дизайн</h3>
-        <p>UI/UX, работа с цветами и типографикой для стильных интерфейсов.</p>
-      </div>
-      <div class="skill-card" data-aos="fade-left" data-aos-duration="800">
-        <span class="material-icons-round">rocket_launch</span>
-        <h3>Проекты под ключ</h3>
-        <p>От идеи до реализации — сайты, лендинги, онлайн-сервисы.</p>
+  <section class="skills-section" id="skills" data-gsap="fade-up">
+  <h2 class="section-title">Мои навыки</h2>
+  <div class="skills-container">
+
+    <div class="skill-item" data-gsap="fade-right">
+      <h3>HTML / CSS</h3>
+      <div class="progress-bar">
+        <div class="progress" data-value="95"></div>
       </div>
     </div>
+
+    <div class="skill-item" data-gsap="fade-left">
+      <h3>JavaScript</h3>
+      <div class="progress-bar">
+        <div class="progress" data-value="85"></div>
+      </div>
+    </div>
+
+    <div class="skill-item" data-gsap="fade-right">
+      <h3>UI/UX Дизайн</h3>
+      <div class="progress-bar">
+        <div class="progress" data-value="80"></div>
+      </div>
+    </div>
+
+    <div class="skill-item" data-gsap="fade-left">
+      <h3>Photoshop / Figma</h3>
+      <div class="progress-bar">
+        <div class="progress" data-value="75"></div>
+      </div>
+    </div>
+
   </div>
 </section>
-
-  <div class="section-divider"></div>
-
-<section class="products-section" id="portfolio" data-aos="fade-up" data-aos-duration="1000">
-  <h2 class="section-title">Мои проекты</h2>
+  
+<div class="section-divider"></div>  
+  
+<section class="products-section" id="works" data-gsap="fade-up">
+  <h2 class="section-title">Мои работы</h2>
+  <div class="filter-buttons">
+    <button data-category="all" class="active">Все</button>
+    <button data-category="Обычный">Обычный</button>
+    <button data-category="Люкс">Люкс</button>
+    <button data-category="Премиум">Премиум</button>
+  </div>
   <div id="products-container" class="products-grid"></div>
-  <div id="pagination" class="pagination" data-aos="fade-up" data-aos-duration="1000"></div>
+  <div id="pagination" class="pagination"></div>
 </section>
 
 <div class="section-divider"></div>
 
-<section class="downloads-accordion" id="faq" data-aos="fade-up" data-aos-duration="1000">
-  <h2 class="section-title">Часто задаваемые вопросы</h2>
-
-  <div class="accordion-container">
-    <div class="accordion-item" data-aos="fade-right" data-aos-duration="800">
-      <button class="accordion-header">
-        <span class="material-icons-round">help_outline</span>
-        Как заказать услугу?
-        <span class="material-icons-round arrow">expand_more</span>
-      </button>
-      <div class="accordion-content">
-        <ul class="accordion-list">
-          <li>Выберите нужную услугу на сайте и оставьте заявку через форму обратной связи.</li>
-          <li>Мы свяжемся с вами для уточнения деталей и подтверждения заказа.</li>
-          <li>После согласования работы вы получите все необходимые материалы.</li>
-        </ul>
+<section class="services-section" id="services" data-gsap="fade-up">
+  <h2 class="section-title">Мои услуги</h2>
+  <div class="services-container">
+    
+    <div class="service-item" data-gsap="fade-right">
+      <div class="header">
+        <span class="material-icons-round">brush</span>
+        <h3>Веб-дизайн</h3>
       </div>
+      <p>Создание уникальных и адаптивных макетов, UI/UX-дизайн для сайтов и приложений.</p>
+      <a href="#contact" class="service-btn">Заказать</a>
     </div>
 
-    <div class="accordion-item" data-aos="fade-left" data-aos-duration="800">
-      <button class="accordion-header">
-        <span class="material-icons-round">payment</span>
-        Как происходит оплата?
-        <span class="material-icons-round arrow">expand_more</span>
-      </button>
-      <div class="accordion-content">
-        <ul class="accordion-list">
-          <li>Оплата возможна через банковскую карту или электронные кошельки.</li>
-          <li>После внесения оплаты вы получите подтверждение и квитанцию.</li>
-          <li>Возможна частичная предоплата по договоренности.</li>
-        </ul>
+    <div class="service-item" data-gsap="fade-left">
+      <div class="header">
+        <span class="material-icons-round">language</span>
+        <h3>Разработка сайтов</h3>
       </div>
+      <p>Верстка сайтов на HTML, CSS, JS. Адаптив под все устройства, современный код.</p>
+      <a href="#contact" class="service-btn">Заказать</a>
     </div>
 
-    <div class="accordion-item" data-aos="fade-right" data-aos-duration="800">
-      <button class="accordion-header">
-        <span class="material-icons-round">schedule</span>
-        Сколько времени занимает?
-        <span class="material-icons-round arrow">expand_more</span>
-      </button>
-      <div class="accordion-content">
-        <ul class="accordion-list">
-          <li>Время выполнения зависит от сложности проекта.</li>
-          <li>Средний срок — от 1 до 7 рабочих дней.</li>
-          <li>Точные сроки оговариваются индивидуально при заказе.</li>
-        </ul>
+    <div class="service-item" data-gsap="fade-right">
+      <div class="header">
+        <span class="material-icons-round">workspace_premium</span>
+        <h3>Логотипы и брендинг</h3>
       </div>
+      <p>Создание фирменного стиля, логотипов и графических решений для вашего бизнеса.</p>
+      <a href="#contact" class="service-btn">Заказать</a>
     </div>
+
+    <div class="service-item" data-gsap="fade-left">
+      <div class="header">
+        <span class="material-icons-round">support_agent</span>
+        <h3>Поддержка и консультации</h3>
+      </div>
+      <p>Техническая поддержка, улучшение дизайна и консультации по развитию проекта.</p>
+      <a href="#contact" class="service-btn">Заказать</a>
+    </div>
+
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<section class="specialists-section" id="special" data-aos="fade-up" data-aos-duration="1000">
+<section class="specialists-section" id="feedback" data-gsap="fade-up">
   <h2 class="section-title">Отзывы</h2>
-  <div class="specialists-slider-container">
-    <button class="slider-btn prev-btn" data-aos="fade-right" data-aos-duration="800">&#10094;</button>
-    <div class="specialists-slider" id="specialistsSlider" data-aos="fade-up" data-aos-duration="1000"></div>
-    <button class="slider-btn next-btn" data-aos="fade-left" data-aos-duration="800">&#10095;</button>
-  </div>
-  <button class="become-specialist-btn" id="becomeSpecialistBtn" data-aos="zoom-in" data-aos-duration="800">Написать отзыв</button>
+  <ul class="team" id="teamList"></ul>
+  <button class="become-specialist-btn" id="becomeSpecialistBtn" data-gsap="zoom-in">
+    Написать отзыв
+  </button>
 </section>
 
 <div class="section-divider"></div>
 
-<section class="contacts" id="contact" data-aos="fade-up" data-aos-duration="1000">
+<section class="contacts" id="contact" data-gsap="fade-up">
+  <h2 class="section-title">Контакты</h2>
   <div class="container">
-    <h2>Контакты</h2>
     <div class="contact-items">
-      <a href="tel:+998930791040" class="contact-link" data-aos="fade-right" data-aos-duration="800">
-        <span class="material-icons-round">call</span>
-        +998 (93) 079-10-40
+      <a href="tel:+998930791040" class="contact-link" data-gsap="fade-right">
+        <span class="material-icons-round">call</span> +998 (93) 079-10-40
       </a>
-      <a href="https://t.me/saidabror_xon" target="_blank" class="contact-link" data-aos="fade-left" data-aos-duration="800">
-        <span class="material-icons-round">send</span>
-        Telegram
+      <a href="https://t.me/saidabror_xon" target="_blank" class="contact-link" data-gsap="fade-left">
+        <span class="material-icons-round">send</span> Telegram
       </a>
     </div>
   </div>
@@ -288,25 +267,22 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
 <div class="section-divider"></div>
 
-<footer class="footer" data-aos="fade-up" data-aos-duration="1000">
-<a href="#home"><span class="material-icons-round">home</span>Главная</a>
-<a href="#about"><span class="material-icons-round">person</span>Обо мне</a>
-<a href="#skills"><span class="material-icons-round">school</span>Навыки</a>
-<a href="#portfolio"><span class="material-icons-round">work</span>Мои работы</a>
-<a href="#special"><span class="material-icons-round">reviews</span>Отзывы</a>
-<a href="#contact"><span class="material-icons-round">mail</span>Контакты</a>
+<footer class="footer" data-gsap="fade-up">
+  <a href="#home"><span class="material-icons-round">home</span>Главная</a>
+  <a href="#skills"><span class="material-icons-round">school</span>Навыки</a>
+  <a href="#works"><span class="material-icons-round">work</span>Работы</a>
+  <a href="#services"><span class="material-icons-round">handyman</span>Услуги</a>
+  <a href="#feedback"><span class="material-icons-round">reviews</span>Отзывы</a>
+  <a href="#contact"><span class="material-icons-round">chat</span>Контакты</a>
 </footer>
 
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js?v=2.3.4"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-</script>
-<script src="js/script.js?v=1.0"></script>
-<script src="js/pagination.js?v=1.0"></script>
-<script src="js/special.js?v=1.0"></script>
+<!-- Твои скрипты -->
+<script src="js/scripts.js"></script>
+<script src="js/files.js"></script>
+<script src="js/team.js"></script>
 </body>
 </html>
