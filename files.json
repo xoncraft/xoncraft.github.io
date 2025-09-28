@@ -1,226 +1,38 @@
 [
   {
-    "title": "Your Club",
-    "desc": "Минималистичная тема для игровых клубов",
-    "image": "products/yourclub.jpg",
-    "video": "products/yourclub.mp4",
-    "price": "$0",
-    "link": "products/yourclub.zip"
+    "title": "GOLD",
+    "desc": "Элитный стиль в золотых тонах",
+    "image": "works/gold.jpg",
+    "video": "works/gold.mp4",
+    "price": "$300",
+    "link": "https://t.me/saidabror_xon",
+    "category": "Премиум"
+  },
+  {
+    "title": "GREEN",
+    "desc": "Современный премиум-дизайн с зелёным акцентом",
+    "image": "works/green.jpg",
+    "video": "works/green.mp4",
+    "price": "$300",
+    "link": "https://t.me/saidabror_xon",
+    "category": "Премиум"
+  },
+  {
+    "title": "PINK",
+    "desc": "Яркая премиум-тема в розовых тонах",
+    "image": "works/pink.jpg",
+    "video": "works/pink.mp4",
+    "price": "$300",
+    "link": "https://t.me/saidabror_xon",
+    "category": "Премиум"
   },
   {
     "title": "RESPAWN",
     "desc": "Вариант с перезагрузкой оформления",
-    "image": "products/resp.jpg",
-    "video": "products/resp.mp4",
+    "image": "works/resp.jpg",
+    "video": "works/resp.mp4",
     "price": "$100",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "ASGARD",
-    "desc": "Скандинавский стиль и мощная графика",
-    "image": "products/asgard.jpg",
-    "video": "products/asgard.mp4",
-    "price": "$100",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "BLITZ",
-    "desc": "Молниеносный интерфейс и графика",
-    "image": "products/blitz.png",
-    "video": "products/blitz.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Impulse",
-    "desc": "Современный тёмный интерфейс с акцентами",
-    "image": "products/impulse.jpg",
-    "video": "products/impulse.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Minimal",
-    "desc": "Простота и чистый дизайн",
-    "image": "products/minimal.jpg",
-    "video": "products/minimal.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Shelby",
-    "desc": "Элегантная тема с фокусом на брендинг",
-    "image": "products/shelby.jpg",
-    "video": "products/shelby.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Horizon (BAR)",
-    "desc": "С игровым баром и неоном",
-    "image": "products/horizon-bar.jpg",
-    "video": "products/horizon-bar.mp4",
-    "price": "$100",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Horizon (no BAR)",
-    "desc": "Лаконичный вариант без барной зоны",
-    "image": "products/horizon-nobar.jpg",
-    "video": "products/horizon-nobar.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "FRAG",
-    "desc": "Яркий стиль для кибер-залов",
-    "image": "products/frag.jpg",
-    "video": "products/frag.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Tech Design",
-    "desc": "Футуристичный техно-дизайн",
-    "image": "products/tech.jpg",
-    "video": "products/tech.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "AIM",
-    "desc": "Тема для CS и FPS-клубов",
-    "image": "products/aim.jpg",
-    "video": "products/aim.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Republic of Gamers",
-    "desc": "Мощный стиль под бренд ROG",
-    "image": "products/gamers.jpg",
-    "video": "products/gamers.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Infinity",
-    "desc": "Тёмная и насыщенная тема",
-    "image": "products/infinity.jpg",
-    "video": "products/infinity.mp4",
-    "price": "$100",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "CyberMax",
-    "desc": "Технологичный дизайн в темных тонах",
-    "image": "products/cybermax.jpg",
-    "video": "products/cybermax.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Spectre",
-    "desc": "Гибрид киберпанка и минимализма",
-    "image": "products/spectre.jpg",
-    "video": "products/spectre.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Proxy",
-    "desc": "Тема с технологичным интерфейсом",
-    "image": "products/proxy.jpg",
-    "video": "products/proxy.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Game Zone",
-    "desc": "Динамичный стиль с неоном",
-    "image": "products/gamezone.jpg",
-    "video": "products/gamezone.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Game Zone 2",
-    "desc": "Вариант с коричневыми тонами",
-    "image": "products/gamezonebrown.jpg",
-    "video": "products/gamezonebrown.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "NEXUS",
-    "desc": "Футуристичный лейаут для клубов",
-    "image": "products/nexus.jpg",
-    "video": "products/nexus.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "AIMZONE",
-    "desc": "Зона прицела — стиль и минимал",
-    "image": "products/aimzone.jpg",
-    "video": "products/aimzone.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "Game Over",
-    "desc": "Дерзкий и агрессивный стиль",
-    "image": "products/over.jpg",
-    "video": "products/over.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "NEON",
-    "desc": "Яркая тема с неоновыми акцентами",
-    "image": "products/neon.jpg",
-    "video": "products/neon.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "PUBG",
-    "desc": "Интерфейс для PUBG-ориентированных клубов",
-    "image": "products/pubg.jpg",
-    "video": "products/pubg.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "RESPAWN",
-    "desc": "Мощная перезагрузка в дизайне",
-    "image": "products/respawn.jpg",
-    "video": "products/respawn.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "CYBER-X",
-    "desc": "Футуризм в каждом пикселе",
-    "image": "products/cyber-x.jpg",
-    "video": "products/cyber-x.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "GAMEX",
-    "desc": "Современный интерфейс для кибер-клубов",
-    "image": "products/gamex.jpg",
-    "video": "products/gamex.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
-  },
-  {
-    "title": "CS CLUB",
-    "desc": "Атмосфера CS-соревнований",
-    "image": "products/csclub.jpg",
-    "video": "products/csclub.mp4",
-    "price": "$50",
-    "link": "https://t.me/saidabror_xon"
+    "link": "https://t.me/saidabror_xon",
+    "category": "Люкс"
   }
 ]
