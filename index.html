@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+<script defer src="js/script.js"></script>
+<script defer src="js/friends.js"></script>
+</head>
+
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader">
+  <div class="preloader-center">
+    <div class="preloader-text">
+      <span>п</span><span>о</span><span>з</span><span>н</span>
+      <span>а</span><span>к</span><span>о</span><span>м</span>
+      <span>и</span><span>м</span><span>с</span><span>я</span><span>?</span>
+    </div>
+    <div class="preloader-line"></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap">
+<button class="burger left" aria-label="Меню">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="4" width="24" height="2" rx="1" fill="currentColor"/>
+    <rect y="11" width="24" height="2" rx="1" fill="currentColor"/>
+    <rect y="18" width="24" height="2" rx="1" fill="currentColor"/>
+  </svg>
+</button>
+    
+    <div class="logo">saidabror</div>
+
+    <nav class="nav">
+      <a href="#home">Кто я?</a>
+      <a href="#friends">Мои друзья</a>
+      <a href="#career">Карьера</a>
+      <a href="#hobby">Хобби</a>
+      <a href="#findme">Где меня найти?</a>
+    </nav>
+
+<button class="burger right" aria-label="Контакты">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
+    <path d="M12 20h9"></path>
+    <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+  </svg>
+</button>
+  </div>
+</header>
+
+<!-- LEFT MENU -->
+<div class="menu left-menu">
+  <a href="#home">Кто я?</a>
+  <a href="#friends">Мои друзья</a>
+  <a href="#career">Карьера</a>
+  <a href="#hobby">Хобби</a>
+  <a href="#findme">Где меня найти?</a>
+</div>
+
+<!-- RIGHT MENU -->
+<div class="menu right-menu">
+  <form id="telegramForm">
+    <input type="text" name="name" placeholder="Имя" required>
+    <input type="text" name="telegram" placeholder="Telegram" required>
+    <textarea name="message" placeholder="Сообщение" required></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero custom-gradient">
+  <div class="hero-image">
+    <svg viewBox="0 0 600 530" width="100%" height="auto">
+      <defs>
+        <clipPath id="stripeMask" clipPathUnits="userSpaceOnUse">
+          <path d="M0,0 H260 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+          <path d="M0,90 H410 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+          <path d="M0,180 H560 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+          <path d="M0,270 H460 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+          <path d="M0,360 H510 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+          <path d="M0,450 H360 a40,40 0 0 1 40,40 a40,40 0 0 1 -40,40 H0 Z"/>
+        </clipPath>
+      </defs>
+
+      <image
+        href="img/1.jpg"
+        width="600"
+        height="530"
+        clip-path="url(#stripeMask)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <h2 class="text-gradient" id="subtitle-question">Я Саидаброр:</h2>
+    <h1 class="text-gradient" id="typing-title"></h1>
+  </div>
+</section>
+
+<h2 class="section-title text-gradient">Мои друзья</h2>
+
+<!-- FRIENDS -->
+<section id="friends" class="section friends-section">
+  <div class="friends-wrap">
+    <div class="friends-grid" id="friendsGrid"></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="friend-modal" id="friendModal">
+  <div class="friend-modal-content" id="friendModalContent">
+    <button class="friend-close" id="friendClose" aria-label="Закрыть">✕</button>
+
+    <div class="friend-modal-grid">
+      <div class="friend-modal-img">
+        <img id="modalImg" src="" alt="" loading="lazy">
+      </div>
+      <div class="friend-modal-text">
+        <h1 id="modalName"></h1>
+        <h3 id="modalAlias"></h3>
+        <p id="modalBio"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title text-gradient">Карьера</h2>
+
+<!-- CAREER -->
+<section id="career" class="career">
+  <div class="career-container">
+    <div class="career-nav">
+      <div class="career-link active" data-index="0">01</div>
+      <div class="career-link" data-index="1">02</div>
+      <div class="career-link" data-index="2">03</div>
+      <div class="career-link" data-index="3">04</div>
+    </div>
+
+    <div class="career-slider">
+      <div class="career-track">
+
+        <div class="career-slide">
+          <div class="career-content">
+            <h2>Начало пути</h2>
+            <p>Описание первого этапа карьеры.</p>
+          </div>
+          <div class="career-image career-img-1"></div>
+        </div>
+
+        <div class="career-slide">
+          <div class="career-content">
+            <h2>Рост</h2>
+            <p>Описание второго этапа карьеры.</p>
+          </div>
+          <div class="career-image career-img-2"></div>
+        </div>
+
+        <div class="career-slide">
+          <div class="career-content">
+            <h2>Опыт</h2>
+            <p>Описание третьего этапа карьеры.</p>
+          </div>
+          <div class="career-image career-img-3"></div>
+        </div>
+
+        <div class="career-slide">
+          <div class="career-content">
+            <h2>Сегодня</h2>
+            <p>Описание текущего этапа.</p>
+          </div>
+          <div class="career-image career-img-4"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="hobby" class="hobby">
+  <h2 class="section-title text-gradient">Мои хобби</h2>
+  <div class="hobby-container">
+
+    <div class="hobby-nav">
+      <input type="radio" class="radio" name="hobby" value="gaming" id="gaming" checked>
+      <label for="gaming" class="label">
+        <img src="img/cs.jpg" alt="Gaming">
+        <span>Gaming</span>
+      </label>
+
+      <input type="radio" class="radio" name="hobby" value="music" id="music">
+      <label for="music" class="label">
+        <img src="img/music.jpg" alt="Music">
+        <span>Music</span>
+      </label>
+
+      <input type="radio" class="radio" name="hobby" value="travel" id="travel">
+      <label for="travel" class="label">
+        <img src="img/travel.png" alt="Travel">
+        <span>Travel</span>
+      </label>
+
+      <input type="radio" class="radio" name="hobby" value="coding" id="coding">
+      <label for="coding" class="label">
+        <img src="img/coding.png" alt="Coding">
+        <span>Coding</span>
+      </label>
+
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+
+  </div>
+</section>
+  
+<section id="findme" class="find-me">
+  <h2 class="section-title text-gradient">Где меня найти</h2>
+  <div class="find-me-container">
+
+    <div class="find-card">
+      <img src="img/tg.png" alt="Telegram" class="find-img">
+      <h3>Telegram</h3>
+      <p>Напиши мне в Telegram для связи и консультаций.</p>
+      <a href="https://t.me/yourusername" target="_blank" class="find-btn">Написать</a>
+    </div>
+
+    <div class="find-card">
+      <img src="img/inst.png" alt="Instagram" class="find-img">
+      <h3>Instagram</h3>
+      <p>Следи за моими проектами и публикациями.</p>
+      <a href="https://instagram.com/yourusername" target="_blank" class="find-btn">Подписаться</a>
+    </div>
+
+    <div class="find-card">
+      <img src="img/cdp.png" alt="Codepen" class="find-img">
+      <h3>CodePen</h3>
+      <p>Смотри мои эксперименты и демо проектов.</p>
+      <a href="https://codepen.io/yourusername" target="_blank" class="find-btn">Посмотреть</a>
+    </div>
+
+  </div>
+</section>
+
+  <footer>
+  <div class="footer-content">
+    <div>
+      <h3>О сайте</h3>
+      <p>Личный сайт-портфолио<br> дизайн, проекты, контакты.</p>
+    </div>
+    <div>
+      <h3>Контакты</h3>
+      <p>Email: example@mail.com</p>
+      <p>Telegram: @username</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Саидаброр Толибов. Все права защищены.
+  </div>
+</footer>
+</body>
+</html>
