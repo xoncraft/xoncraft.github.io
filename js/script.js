@@ -150,69 +150,103 @@ document.querySelectorAll(".nav a").forEach(link => {
   );
 });
 
-// ===============================
-// КРЕАТИВНЫЙ ТАЙПИНГ
-// ===============================
-const typingVariants = ["Волшебник", "Мне 25 лет", "Из Андижана"];
+// Stagger-анимация букв
+function splitText(el) {
+  const text = el.textContent;
+  el.textContent = '';
+  const chars = text.split('');
+  chars.forEach(ch => {
+    const span = document.createElement('span');
+    span.textContent = ch;
+    el.appendChild(span);
+  });
+  return el.querySelectorAll('span');
+}
 
-function startBidirectionalTyping(element, baseSpeed = 80, pause = 1500) {
+// Тайпинг премиум
+const typingVariants = ["Волшебник", "Мне 25 лет", "Из Андижана"];
+function startPremiumTyping(element, speed=80, pause=1500) {
   let current = 0;
   function typeNext() {
-    bidirectionalType(
-      element,
-      typingVariants[current],
-      baseSpeed,
-      pause,
-      () => {
-        current = (current + 1) % typingVariants.length;
-        typeNext();
-      }
-    );
+    bidirectionalType(element, typingVariants[current], speed, pause, () => {
+      current = (current + 1) % typingVariants.length;
+      typeNext();
+    });
   }
   typeNext();
 }
 
-function bidirectionalType(element, text, baseSpeed, pause, callback) {
-  element.textContent = "";
-  const cursor = document.createElement("span");
-  cursor.textContent = "|";
-  cursor.style.marginLeft = "2px";
-  cursor.style.animation = "blink 1s infinite";
+// Bidirectional typing
+function bidirectionalType(element, text, speed, pause, callback) {
+  element.innerHTML = '';
+  const cursor = document.createElement('span');
+  cursor.textContent = '|';
+  cursor.style.marginLeft = '2px';
+  cursor.style.animation = 'blink 1s infinite';
   element.appendChild(cursor);
-
+  
   let i = 0;
-
   function typeLetter() {
-    if (i < text.length) {
-      element.textContent = text.slice(0, i + 1);
+    if(i < text.length){
+      element.innerHTML = text.slice(0,i+1);
       element.appendChild(cursor);
       i++;
-      setTimeout(typeLetter, baseSpeed + Math.random() * 120);
+      setTimeout(typeLetter, speed + Math.random()*80);
     } else setTimeout(eraseLetter, pause);
   }
-
   function eraseLetter() {
-    if (i > 0) {
-      element.textContent = text.slice(0, i - 1);
+    if(i > 0){
+      element.innerHTML = text.slice(0,i-1);
       element.appendChild(cursor);
       i--;
-      setTimeout(eraseLetter, baseSpeed + Math.random() * 120);
-    } else setTimeout(callback, pause / 2);
+      setTimeout(eraseLetter, speed + Math.random()*80);
+    } else setTimeout(callback, pause/2);
   }
-
   typeLetter();
 }
 
 // Курсор мигание
-const style = document.createElement("style");
+const style = document.createElement('style');
 style.innerHTML = `
-@keyframes blink {
-  0%,50%,100% {opacity:1;}
-  25%,75% {opacity:0;}
-}
+@keyframes blink {0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
 `;
 document.head.appendChild(style);
 
+// GSAP Intro анимация
+const titleSpans = splitText(document.querySelector('.hero-title'));
+gsap.from(titleSpans, {
+  y: 80,
+  opacity: 0,
+  stagger: 0.05,
+  duration: 1.5,
+  ease: "power4.out"
+});
+gsap.from(".hero-subtitle", {y:40, opacity:0, duration:1, delay:0.2, ease:"power3.out"});
+gsap.from(".hero-description", {y:30, opacity:0, duration:1, delay:0.4, ease:"power3.out"});
+gsap.from(".hero-buttons a", {y:30, opacity:0, duration:1, delay:0.6, stagger:0.2, ease:"power3.out"});
+
+// Магнитные кнопки
+document.querySelectorAll('.btn-magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    gsap.to(btn, {x:x*0.2, y:y*0.2, duration:0.3, ease:"power3.out"});
+  });
+  btn.addEventListener('mouseleave', () => gsap.to(btn,{x:0,y:0,duration:0.5,ease:"power3.out"}));
+});
+
+// Параллакс orb по мыши
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 40;
+  const y = (e.clientY / window.innerHeight - 0.5) * 40;
+  gsap.to('.orb-1',{x:x,y:y,duration:1,ease:"power3.out"});
+  gsap.to('.orb-2',{x:-x*0.6,y:-y*0.6,duration:1,ease:"power3.out"});
+  gsap.to('.orb-3',{x:x*0.4,y:-y*0.4,duration:1,ease:"power3.out"});
+});
+
+// Запуск премиум тайпинга
+startPremiumTyping(document.getElementById('premium-typing'));
 // ===============================
 // СЛАЙДЕР КАРЬЕРЫ
 // ===============================
@@ -229,7 +263,7 @@ if (track && slides.length) {
     currentSlide = index;
     gsap.to(track, {
       xPercent: -100 * index,
-      duration: 0.25,
+      duration: 0.45,
       ease: "power2.inOut"
     });
     links.forEach(l => l.classList.remove("active"));
@@ -275,6 +309,52 @@ if (track && slides.length) {
   updateSlider(0);
   startAutoSlide();
 }
+
+// ===============================
+// Проекты
+// ===============================
+gsap.utils.toArray(".project").forEach(card => {
+  gsap.from(card, {
+    y: 80,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none reset"
+    }
+  });
+});
+
+document.querySelectorAll(".project").forEach(card => {
+
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = (y / rect.height - 0.5) * 15;
+    const rotateY = (x / rect.width - 0.5) * -15;
+
+    gsap.to(card, {
+      rotateX: rotateX,
+      rotateY: rotateY,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.6,
+      ease: "power3.out"
+    });
+  });
+
+});
 
 // ===============================
 // ХОББИ-ПРОГРЕСС
