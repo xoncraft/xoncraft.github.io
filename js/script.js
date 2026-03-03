@@ -229,8 +229,8 @@ if (track && slides.length) {
     currentSlide = index;
     gsap.to(track, {
       xPercent: -100 * index,
-      duration: 0.8,
-      ease: "power3.inOut"
+      duration: 0.45,
+      ease: "power2.inOut"
     });
     links.forEach(l => l.classList.remove("active"));
     if (links[index]) links[index].classList.add("active");
