@@ -194,7 +194,82 @@ header{
   color:var(--accent);
   transform:translateX(4px);
 }
+/* ============================= */
+/* PREMIUM STYLE — LEFT MENU    */
+/* ============================= */
 
+.left-menu{
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(255,255,255,0.08);
+  
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  overflow: hidden;
+  position: fixed;
+}
+
+/* мягкая светящаяся полоска слева */
+.left-menu::before{
+  content:"";
+  position:absolute;
+  top:20px;
+  bottom:20px;
+  left:0;
+  width:3px;
+  border-radius:3px;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent),
+    transparent
+  );
+  opacity:.4;
+}
+
+/* ссылки */
+.left-menu a{
+  position:relative;
+  padding-left:14px;
+  font-weight:500;
+  letter-spacing:.3px;
+}
+
+/* плавная подсветка строки */
+.left-menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  transform:translateY(-50%) scale(0);
+  transition:var(--transition);
+  opacity:.8;
+}
+
+.left-menu a:hover{
+  color:var(--accent);
+  transform:translateX(6px);
+}
+
+.left-menu a:hover::after{
+  transform:translateY(-50%) scale(1);
+}
+
+/* аккуратное разделение */
+.left-menu a:not(:last-child){
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  padding-bottom:12px;
+}
 /* ===== FORM ===== */
 
 form{
@@ -368,7 +443,7 @@ form button{
 /* ===== FRIENDS ===== */
 
 .friends-section{
-  padding:120px 20px;
+  padding:60px 20px;
 }
 
 .friends-wrap{
